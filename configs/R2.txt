@@ -1,0 +1,19 @@
+ena
+conf t
+int lo0
+ ip add 2.2.2.2 255.255.255.255
+ ip os 1 ar 0
+int fa0/0
+ no shut
+ ip add dhcp
+int fa1/0
+ no shut
+ ip add 10.12.0.2 255.255.255.0
+ ip os 1 ar 0
+int fa1/1
+ no shut
+ ip add 172.16.1.1 255.255.255.0
+ ip os 1 ar 0
+snmp-server community public ro
+end
+wr
